@@ -8,13 +8,20 @@ import ani.saikou.parsers.anime.sources.AnimeDummy
 
 object AnimeSources : WatchSources() {
     override val list: List<Lazier<BaseParser>> = lazyList(
-        "Dummy" to ::AnimeDummy,
+//        "Dummy" to ::AnimeDummy,
+        "Gogo" to ::Gogo,
+        "AniWave" to ::AniWave,
+        "AllAnime" to ::AllAnime,
+        "AnimeDao" to ::AnimeDao,
+        "AnimePahe" to ::AnimePahe,
+        "Kaido" to ::Kaido,
+
     )
 }
 
 object HAnimeSources : WatchSources() {
     private val aList: List<Lazier<BaseParser>>  = lazyList(
-        // Here comes hentai anime parsers
+        "Haho" to ::Haho,
     )
 
     override val list = listOf(aList, AnimeSources.list).flatten()

@@ -20,6 +20,7 @@ class DoodStream(override val server: VideoServer) : VideoExtractor() {
         val token = res.findBetween("token=", "&")!!
         val url = client.get("$domain/pass_md5/$hash", referer = domain).text
         val link = FileUrl("$url?token=$token&expiry=${Date().time}}", mapOf("referer" to domain))
+        println(link)
         return VideoContainer(
             listOf(Video(null, VideoType.CONTAINER, link, getSize(link)))
         )
