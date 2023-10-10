@@ -14,6 +14,7 @@ object AnimeSources : WatchSources() {
         "AllAnime" to ::AllAnime,
         "AnimeDao" to ::AnimeDao,
         "AnimePahe" to ::AnimePahe,
+        "KickAssAnime" to ::KickAssAnime,
         "Kaido" to ::Kaido,
 
     )
