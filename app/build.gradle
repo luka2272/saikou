@@ -18,7 +18,7 @@ android {
         minSdk 21
         targetSdk 34
         versionCode ((System.currentTimeMillis() / 60000).toInteger())
-        versionName '1.2.5.1'
+        versionName '1.2.6'
         signingConfig signingConfigs.debug
     }
 
@@ -31,6 +31,7 @@ android {
         release {
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
         }
     }
     buildFeatures {
