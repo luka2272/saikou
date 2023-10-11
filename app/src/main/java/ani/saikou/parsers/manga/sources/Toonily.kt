@@ -1,4 +1,4 @@
-package ani.saikou.parsers.manga
+package ani.saikou.parsers.manga.sources
 
 import ani.saikou.FileUrl
 import ani.saikou.Mapper

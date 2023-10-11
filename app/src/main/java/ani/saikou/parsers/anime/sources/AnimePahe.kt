@@ -1,8 +1,15 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import ani.saikou.client
 import ani.saikou.loadData
 import ani.saikou.parsers.*
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.Video
+import ani.saikou.parsers.anime.VideoContainer
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
+import ani.saikou.parsers.anime.VideoType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.math.absoluteValue

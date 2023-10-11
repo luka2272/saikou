@@ -1,4 +1,4 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import android.net.Uri
 import ani.saikou.*
@@ -6,6 +6,14 @@ import ani.saikou.connections.anilist.Anilist
 import ani.saikou.parsers.*
 import ani.saikou.parsers.anime.extractors.DoodStream
 import ani.saikou.parsers.anime.extractors.GogoCDN
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.Subtitle
+import ani.saikou.parsers.anime.Video
+import ani.saikou.parsers.anime.VideoContainer
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
+import ani.saikou.parsers.anime.VideoType
 import ani.saikou.parsers.anime.extractors.Mp4Upload
 import ani.saikou.parsers.anime.extractors.StreamSB
 import kotlinx.serialization.SerialName

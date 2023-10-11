@@ -1,13 +1,16 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import android.net.Uri
 import ani.saikou.FileUrl
 import ani.saikou.client
 import ani.saikou.parsers.*
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
 import ani.saikou.parsers.anime.extractors.ALions
 import ani.saikou.parsers.anime.extractors.AWish
 import ani.saikou.parsers.anime.extractors.DoodStream
-import ani.saikou.parsers.anime.extractors.FPlayer
 import ani.saikou.parsers.anime.extractors.GogoCDN
 
 class Gogo : AnimeParser() {

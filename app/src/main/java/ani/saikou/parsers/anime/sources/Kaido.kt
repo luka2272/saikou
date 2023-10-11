@@ -1,10 +1,14 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import android.net.Uri
 import ani.saikou.FileUrl
 import ani.saikou.asyncMap
 import ani.saikou.client
 import ani.saikou.parsers.*
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
 import ani.saikou.parsers.anime.extractors.RapidCloud
 import ani.saikou.parsers.anime.extractors.StreamSB
 import ani.saikou.parsers.anime.extractors.StreamTape

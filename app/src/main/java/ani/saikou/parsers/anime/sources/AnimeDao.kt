@@ -1,4 +1,4 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import android.net.Uri
 import ani.saikou.client
@@ -12,8 +12,6 @@ import ani.saikou.parsers.anime.extractors.AWish
 import ani.saikou.parsers.anime.extractors.DoodStream
 import ani.saikou.parsers.anime.extractors.GogoCDN
 import ani.saikou.parsers.anime.extractors.Mp4Upload
-import ani.saikou.parsers.anime.extractors.StreamSB
-import ani.saikou.parsers.anime.extractors.StreamTape
 import ani.saikou.parsers.anime.extractors.VidStreaming
 
 class AnimeDao : AnimeParser() {

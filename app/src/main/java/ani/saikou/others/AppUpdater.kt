@@ -28,12 +28,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object AppUpdater {
-    suspend fun check(activity: FragmentActivity, post:Boolean=false) {
+    suspend fun check(activity: FragmentActivity, post:Boolean=true) {
         if(post) snackString(currContext()?.getString(R.string.checking_for_update))
         val repo = activity.getString(R.string.repo)
         tryWithSuspend {
             val (md, version) = if(BuildConfig.DEBUG){
-                val res = client.get("https://api.github.com/repos/$repo/releases")
+                val res =
+                    client.get("https://api.github.com/repos/$repo/releases")
                     .parsed<JsonArray>().map {
                         Mapper.json.decodeFromJsonElement<GithubResponse>(it)
                     }

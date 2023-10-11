@@ -1,14 +1,21 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import android.net.Uri
 import ani.saikou.FileUrl
 import ani.saikou.Mapper
 import ani.saikou.client
 import ani.saikou.parsers.*
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
 import ani.saikou.parsers.anime.extractors.*
 import kotlinx.serialization.Serializable
+import org.json.JSONException
+import org.json.JSONObject
 import java.net.URLDecoder
 
+//couldnt fix this time, will try some day again..
 class KickAssAnime : AnimeParser() {
 
     override val name: String = "KickAssAnime"
@@ -16,32 +23,37 @@ class KickAssAnime : AnimeParser() {
     override val hostUrl: String = "https://kickassanime.am"
     override val isDubAvailableSeparately: Boolean = true
 
-    override suspend fun loadEpisodes(
-        animeLink: String,
-        extra: Map<String, String>?
-    ): List<Episode> {
-        val tag = client.get(animeLink).document.getElementsByTag("script")[5].toString()
+    override suspend fun loadEpisodes(animeLink: String, extra: Map<String, String>?): List<Episode> {
+        val apiUrl = "https://kickassanime.am/api/show/berserk-of-gluttony-e3be/episodes?ep=1&lang=ja-JP"
+        val response = client.get(apiUrl)
 
-        val jsonSlice =
-            "{\"episodes\":".plus(
-                tag.substringAfter("appData = ")
-                    .substringAfter("episodes\":")
-                    .substringBefore(",\"types\"")
-                    .plus("}")
-            )
 
-        val json = Mapper.parse<SearchResponseEpisodes>(jsonSlice)
 
-        return json.episodes
-            .mapNotNull { episode ->
-                Episode(
-                    number = episode.num,
-                    link = hostUrl + episode.slug,
-                    title = episode?.name ?: episode.epnum
-                )
+        if (response.isSuccessful) {
+            val json = response.body?.string() ?: ""
+
+            try {
+                val jsonObject = JSONObject(json)
+                val resultArray = jsonObject.getJSONArray("result")
+
+                val episodes = mutableListOf<Episode>()
+
+                for (i in 0 until resultArray.length()) {
+                    val episodeObject = resultArray.getJSONObject(i)
+                    val title = episodeObject.getString("title")
+                    val episodeNumber = episodeObject.getString("episode_string")
+                    val link = "https://kickassanime.am/api/show/berserk-of-gluttony-e3be/episode/ep-" + episodeObject.getString("episode_number") + "-" + episodeObject.getString("slug")
+                    episodes.add(Episode(episodeNumber, link, title))
+                }
+                return episodes.reversed()
+            } catch (e: JSONException) {
+                e.printStackTrace()
             }
-            .asReversed()
+        }
+
+        return emptyList()
     }
+
 
     override suspend fun search(query: String): List<ShowResponse> {
         val encoded = encode(query + if (selectDub) " (Dub)" else "")
@@ -55,15 +67,13 @@ class KickAssAnime : AnimeParser() {
         // Parse the JSON into the SearchResponse data class
         val json = Mapper.parse<SearchResponse>(jsonResponse)
 
-        println("The value of the variable is: $json")
-
         return json.animes.mapNotNull { anime ->
             // KA seems to have no way to differentiate between Dub and Sub
             // so we simply remove those with "(Dub)" in the title.
             if (!selectDub && anime.name.contains("(Dub)")) return@mapNotNull null
             ShowResponse(
                 name = anime.name,
-                link = hostUrl + anime.slug,
+                link = anime.slug,
                 coverUrl = FileUrl(anime.image, mapOf(
                     "User-Agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0"
                 )),
@@ -72,159 +82,108 @@ class KickAssAnime : AnimeParser() {
     }
 
 
-    override suspend fun loadVideoServers(episodeLink: String, extra: Map<String,String>?): List<VideoServer> {
+//    override suspend fun loadVideoServers(episodeLink: String, extra: Map<String,String>?): List<VideoServer> {
+//
+//        val (kaastLinks, externalServers) = this.getVideoPlayerLink(episodeLink)
+//
+//        val serverLinks = mutableListOf<VideoServer>()
+//        kaastLinks.forEach { pageLink ->
+//            if (pageLink == null || pageLink.isBlank()) return@forEach
+//
+//            // These are not yet implemented
+//            if (pageLink.contains("mobile")) return@forEach
+//
+//            val tag =
+//                client.get(pageLink).document.getElementsByTag("script").reversed()[7].toString()
+//            val jsonSlice =
+//                "{\"sources\":"
+//                    .plus(tag.substringAfter("var sources = ").substringBefore("}];"))
+//                    .plus("}]}")
+//
+//            val json = Mapper.parse<EpisodePage>(jsonSlice)
+//
+//            json.sources.forEach { server ->
+//                serverLinks.add(videoServerTemplate(server.name, server.src))
+//            }
+//        }
+//
+//        externalServers.forEach { server ->
+//            serverLinks.add(videoServerTemplate(server.name, server.link))
+//        }
+//        return serverLinks
+//    }
 
-        val (kaastLinks, externalServers) = this.getVideoPlayerLink(episodeLink)
+//    override suspend fun loadVideoServers(
+//        episodeLink: String,
+//        extra: Map<String, String>?
+//    ): List<VideoServer> {
+//        val baseUrl = "https:"
+//        return client.get(episodeLink)
+//            .document
+//            .select(".anime_muti_link a")
+//            .map {
+//                val dataVideo = it.attr("data-video")
+//                val videoUrl = if (dataVideo.startsWith("http://") || dataVideo.startsWith("https://")) {
+//                    dataVideo // URL already has a scheme
+//                } else {
+//                    baseUrl + dataVideo // Add the base URL if the scheme is missing
+//                }
+//                VideoServer(it.text(), videoUrl)
+//            }
+//    }
 
-        val serverLinks = mutableListOf<VideoServer>()
-        kaastLinks.forEach { pageLink ->
-            if (pageLink == null || pageLink.isBlank()) return@forEach
+    override suspend fun loadVideoServers(episodeLink: String, extra: Map<String, String>?): List<VideoServer> {
+        val apiUrl = "https://kickassanime.am/api/show/berserk-of-gluttony-e3be/episode/ep-1-fb4bbc"  // Replace with the actual API URL
+        val response = client.get(apiUrl)
 
-            // These are not yet implemented
-            if (pageLink.contains("mobile")) return@forEach
+        if (response.isSuccessful) {
+            val json = response.body?.string() ?: ""
 
-            val tag =
-                client.get(pageLink).document.getElementsByTag("script").reversed()[7].toString()
-            val jsonSlice =
-                "{\"sources\":"
-                    .plus(tag.substringAfter("var sources = ").substringBefore("}];"))
-                    .plus("}]}")
+            try {
+                val jsonObject = JSONObject(json)
+                val serversArray = jsonObject.getJSONArray("servers")
+                val videoServers = mutableListOf<VideoServer>()
 
-            val json = Mapper.parse<EpisodePage>(jsonSlice)
+                for (i in 0 until serversArray.length()) {
+                    val serverObject = serversArray.getJSONObject(i)
+                    val serverName = serverObject.getString("name")
+                    val videoUrl = serverObject.getString("src")
 
-            json.sources.forEach { server ->
-                serverLinks.add(videoServerTemplate(server.name, server.src))
-            }
-        }
-
-        externalServers.forEach { server ->
-            serverLinks.add(videoServerTemplate(server.name, server.link))
-        }
-        return serverLinks
-    }
-
-    suspend fun getVideoPlayerLink(
-        episodeLink: String
-    ): Pair<KAASTLink.KAASTObject, MutableList<KAASTLink.ExternalServer>> {
-        val tag =
-            client
-                .get(episodeLink)
-                .document
-                .getElementsByTag("script")[6]
-                .toString()
-                .substringAfter("appData = {")
-                .substringAfter("\"episode\":")
-                .substringBefore(",\"episodes\"")
-
-        val slice =
-            "{ \"episode\": ${
-                tag.substringBefore(",\"ext_servers\"")
-            },\"ext_servers\"${
-                tag.substringAfter(",\"ext_servers\"")
-            }}"
-
-        val json = Mapper.parse<KAASTLink>(slice)
-
-        listOf(
-            json.episode.link1,
-            json.episode.link2,
-            json.episode.link3,
-            json.episode.link4
-        )
-            .forEachIndexed { index, link ->
-                // We can't use listOfNotNull because that will mess up
-                // the indexes
-                if (link == null) return@forEachIndexed
-
-                if (link.contains("addkaa")) {
-                    when (index + 1) {
-                        1 -> json.episode.link1 = ""
-                        2 -> json.episode.link2 = ""
-                        3 -> json.episode.link3 = ""
-                        4 -> json.episode.link4 = ""
-                    }
-                    json.ext_servers.add(KAASTLink.ExternalServer(name = "VidCDN", link = link))
-                }
-            }
-        return Pair(json.episode, json.ext_servers)
-    }
-
-    override suspend fun getVideoExtractor(server: VideoServer): VideoExtractor? {
-        val domain = Uri.parse(server.embed.url).host ?: return null
-
-        if (server.extraData !is Map<*, *>) return null
-
-        val referralServer = {
-            var url = server.extraData.get("data_segment").toString()
-            url = if (!url.startsWith("https:")) {
-                "https:$url"
-            } else {
-                url
-            }
-
-            val cleanedURL =
-                when (server.extraData.get("id")) {
-                    "streamsb" -> {
-                        val regex = "(?<=embed-).+(?=\\.html)".toRegex()
-                        val id = regex.find(url)
-                        FileUrl(
-                            "https://sbplay.org/e/${id?.value}.html?referer=&",
-                            server.embed.headers
-                        )
-                    }
-                    "kickassanimev2" ->
-                        FileUrl(
-                            server.embed.url.replace("embed.php", "pref.php"),
-                            server.embed.headers
-                        )
-                    "betaplayer" ->
-                        server.embed
-                    "vidstreaming" ->
-                        FileUrl(
-                            url,
-                            server.embed.headers
-                        )
-                    "vidcdn",
-                    "addkaa" -> {
-                        FileUrl(
-                            url.replace("load.php", "streaming.php"),
-                            server.embed.headers
-                        )
-                    }
-                    "pink-bird" ->
-                        FileUrl(
-                            server.embed.url.replace(Regex("player[0-9]?.php"), "pref.php"),
-                            server.embed.headers
-                        )
-                    "xstreamcdn" ->
-                        server.embed
-                    else ->
-                        FileUrl(
-                            url,
-                            server.embed.headers
-                        )
+                    videoServers.add(VideoServer(serverName, videoUrl))
                 }
 
-            VideoServer(server.name, cleanedURL)
-        }
-        val extractor: VideoExtractor? =
-            when (server.extraData.get("id")) {
-                "pink-bird"      -> PinkBird(referralServer())
-                "streamsb"       -> StreamSB(referralServer())
-                "maverickki"     -> Maverickki(server)
-                "vidstreaming"   -> VidStreaming(referralServer())
-                "betaplayer"     -> BetaPlayer(referralServer())
-                "gogo",
-                "vidcdn",
-                "addkaa"         -> GogoCDN(referralServer())
-                "kickassanimev2" -> KickAssAnimeV2(referralServer())
-                "streamtape"     -> StreamTape(referralServer())
-                "xstreamcdn" -> FPlayer(referralServer())
-                else             -> null
+                println("kick v server: $videoServers")
+                return videoServers
+            } catch (e: JSONException) {
+                e.printStackTrace()
             }
+        }
 
+        return emptyList()
+    }
+
+
+        override suspend fun getVideoExtractor(server: VideoServer): VideoExtractor? {
+        val domain = Uri.parse(server.embed.url).host ?: ""
+            val header = mapOf(
+                "Accept" to "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "Referer" to "https://kaast1.com/",
+                "Sec-Fetch-Dest" to "iframe"
+            )
+        val extractor: VideoExtractor? = when {
+            "vidco" in domain    -> GogoCDN(server)
+            "vidco" in domain  -> KickAssAnimeV2(server)
+//            "awish" in domain  -> AWish(server)
+//            "mp4upload" in domain -> Mp4Upload(server)
+//            "alions" in domain -> ALions(server)
+//            "dood" in domain    -> DoodStream(server)
+            else                 -> null
+        }
+            println("vdo extract: $extractor")
         return extractor
+
     }
+
 
     private fun videoServerTemplate(name: String, src: String): VideoServer {
         return VideoServer(
@@ -250,7 +209,7 @@ class KickAssAnime : AnimeParser() {
     }
 
     @Serializable
-    data class SearchResponseEpisodes(val episodes: List<EpisodeSearchResult>) {
+    data class SearchResponseEpisodes(val result: List<EpisodeSearchResult>) {
         @Serializable
         data class EpisodeSearchResult(
             val epnum: String,

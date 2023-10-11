@@ -1,4 +1,4 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import ani.saikou.FileUrl
 import ani.saikou.client

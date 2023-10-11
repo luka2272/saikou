@@ -1,9 +1,16 @@
-package ani.saikou.parsers.anime
+package ani.saikou.parsers.anime.sources
 
 import ani.saikou.FileUrl
 import ani.saikou.client
 import ani.saikou.getSize
 import ani.saikou.parsers.*
+import ani.saikou.parsers.anime.AnimeParser
+import ani.saikou.parsers.anime.Episode
+import ani.saikou.parsers.anime.Video
+import ani.saikou.parsers.anime.VideoContainer
+import ani.saikou.parsers.anime.VideoExtractor
+import ani.saikou.parsers.anime.VideoServer
+import ani.saikou.parsers.anime.VideoType
 import java.net.URI
 
 class Haho : AnimeParser() {
@@ -74,7 +81,10 @@ class Haho : AnimeParser() {
                 client.get(url, headers).document.select("video#player>source").forEach {
                     val uri = it.attr("src")
                     if (uri.isNotEmpty())
-                        list.add(Video(it.attr("title").replace("p","").toIntOrNull(),VideoType.CONTAINER,uri, getSize(uri)))
+                        list.add(
+                            Video(it.attr("title").replace("p","").toIntOrNull(),
+                                VideoType.CONTAINER,uri, getSize(uri))
+                        )
                 }
                 return VideoContainer(list)
             }
