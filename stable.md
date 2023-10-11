@@ -1,4 +1,4 @@
-# 1.2.5
+# 1.2.6
 
 - Fix some Big Crashes
 - Added Search by Image (thanks to @antonydp)
