@@ -39,7 +39,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 |                            SITE                            |    STATUS    | DOWNLOADS |
 |:----------------------------------------------------------:|:------------:|:---------:|
-|             [AllAnime](https://allanime.site)              | SEMI-WORKING |   SOME    |
+|             [AllAnime](https://allanime.site)              |   WORKING    |   SOME    |
 |                [Gogo](https://gogoanime.cm)                |   WORKING    |   SOME    |
 |                  [Kaido](https://kaido.to)                 |   WORKING    |    NO     |
 |             [AniWave](https://aniwave.to)                  | SEMI-WORKING |    NO     |
