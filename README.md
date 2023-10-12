@@ -37,18 +37,42 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 * **Available Anime sources:-**
 
-|               SITE                |    STATUS    |
-|:---------------------------------:|:------------:|
-|  [AllAnime](https://allanime.to)  |   WORKING    | 
-|   [Gogo](https://gogoanime.cl)    |   WORKING    |
-|     [Kaido](https://kaido.to)     |   WORKING    |
-|    [Marin](https://marin.moe)     |   WORKING    |
-| [AnimePahe](https://animepahe.ru) |   WORKING    |
-|   [AniWave](https://aniwave.to)   |   WORKING    |
-|  [AnimeDao](https://animedao.bz)  |   WORKING    |
+|                            SITE                            |    STATUS    | DOWNLOADS |
+|:----------------------------------------------------------:|:------------:|:---------:|
+|             [AllAnime](https://allanime.site)              | SEMI-WORKING |   SOME    |
+|                [Gogo](https://gogoanime.cm)                |   WORKING    |   SOME    |
+|                  [Kaido](https://kaido.to)                 |   WORKING    |    NO     |
+|             [AniWave](https://aniwave.to)                  | SEMI-WORKING |    NO     |
+|                 [AnimeDao](https://animedao.bz)            |   WORKING    |    SOME   |
+|             [AnimePahe](https://animepahe.ru)              |   WORKING    |    YES    |
+|               [Haho (18+)](https://haho.moe)               |   WORKING    |    YES    |
+|         [HentaiMama (18+)](https://hentaimama.io)          |   WORKING    |   SOME    |
+|       [HentaiStream (18+)](https://hentaistream.com)       |  NOT-WORKING |    NO     |
+|           [HentaiFF (18+)](https://hentaiff.com)           |  NOT-WORKING |    NO     |
 
-(Source list updated as of 10/08/2023)
 
+* **Available Manga sources:-**
+
+|                    SITE                    |   STATUS    |
+|:------------------------------------------:|:-----------:|
+|  [MangaKakalot](https://mangakakalot.com)  |   WORKING   |
+|    [MangaBuddy](https://mangabuddy.com)    |   WORKING   |
+|    [MangaSee](https://mangasee123.com)     |   WORKING   |
+|     [MangaPill](https://mangapill.com)     |   WORKING   |
+|      [MangaDex](https://mangadex.org)      |   WORKING   |
+|     [AllAnime](https://allanime.site)      | NOT-WORKING |
+| [Manga4Life](https://manga4life.com/)      |   WORKING   |
+| [MangaRead](https://www.mangaread.org)     |   WORKING   |
+|   [MangaKatana](https://mangakatana.com)   |   WORKING   |
+|      [Toonily](https://toonily.com/)       |   WORKING   |
+| [NineHentai (18+)](https://ninehentai.net) |   WORKING   |
+|   [Manwha18 (18+)](https://manhwa18.cc)    |   WORKING   |
+
+(Source list updated as of 11/10/2023)
+
+## Planned Stuff
+
+- User Profile
 
 ## WANT TO CONTRIBUTE?
 
