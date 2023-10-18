@@ -45,6 +45,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 |             [AniWave](https://aniwave.to)                  | SEMI-WORKING |    NO     |
 |                 [AnimeDao](https://animedao.bz)            |   WORKING    |    SOME   |
 |             [AnimePahe](https://animepahe.ru)              |   WORKING    |    YES    |
+|           [Animension (18+)](animension.to)                |   WORKING    |    YES    |
 |               [Haho (18+)](https://haho.moe)               |   WORKING    |    YES    |
 |         [HentaiMama (18+)](https://hentaimama.io)          |   WORKING    |   SOME    |
 |       [HentaiStream (18+)](https://hentaistream.com)       |  NOT-WORKING |    NO     |
@@ -55,6 +56,8 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 |                    SITE                    |   STATUS    |
 |:------------------------------------------:|:-----------:|
+|     [AsuraScans](https://asuratoon.com)    |   WORKING   |
+|        [MM-Scans](mm-scans.org)            |   WORKING   |
 |  [MangaKakalot](https://mangakakalot.com)  |   WORKING   |
 |    [MangaBuddy](https://mangabuddy.com)    |   WORKING   |
 |    [MangaSee](https://mangasee123.com)     |   WORKING   |
@@ -80,6 +83,10 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 - You can come hang out with our awesome community and request new features and report any bugs or issue at our discord server too.
 
+### Join My Telegram Group (unofficial)
+
+https://telegram.me/misfits_zone
+
 ### Official Discord Server
 
 <p align="center">
@@ -92,9 +99,9 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 https://telegram.me/saikou_app
 
-### VISIT FOR MORE INFORMATION:-
+<!-- ### VISIT FOR MORE INFORMATION:-
 
-https://saikou.me/
+https://saikou.me/ -->
 
 ## DISCLAIMER
 
