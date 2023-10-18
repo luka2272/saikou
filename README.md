@@ -71,7 +71,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 | [NineHentai (18+)](https://ninehentai.net) |   WORKING   |
 |   [Manwha18 (18+)](https://manhwa18.cc)    |   WORKING   |
 
-(Source list updated as of 11/10/2023)
+(Source list updated as of 18/10/2023)
 
 ## Planned Stuff
 
