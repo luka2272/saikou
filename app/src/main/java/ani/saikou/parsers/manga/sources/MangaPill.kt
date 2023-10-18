@@ -6,7 +6,6 @@ import ani.saikou.parsers.manga.MangaChapter
 import ani.saikou.parsers.manga.MangaImage
 import ani.saikou.parsers.manga.MangaParser
 import ani.saikou.parsers.ShowResponse
-import ani.saikou.printIt
 
 class MangaPill : MangaParser() {
 
@@ -16,8 +15,10 @@ class MangaPill : MangaParser() {
 
     val headers = mapOf("referer" to hostUrl)
 
-    override suspend fun loadChapters(mangaLink: String, extra: Map<String, String>?): List<MangaChapter> {
-        return client.get(mangaLink).document.select("#chapters > div > a").reversed().map {
+    override suspend fun loadChapters(
+        mangaLink: String, extra: Map<String, String>?
+    ): List<MangaChapter> {
+        return client.get(mangaLink).document.select("#chapters > div > a").map {
             val chap = it.text().replace("Chapter ", "")
             MangaChapter(chap, hostUrl + it.attr("href"))
         }

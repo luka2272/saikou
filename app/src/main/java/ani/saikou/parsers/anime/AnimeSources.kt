@@ -8,6 +8,7 @@ import ani.saikou.parsers.anime.sources.AllAnime
 import ani.saikou.parsers.anime.sources.AniWave
 import ani.saikou.parsers.anime.sources.AnimeDao
 import ani.saikou.parsers.anime.sources.AnimePahe
+import ani.saikou.parsers.anime.sources.Animension
 import ani.saikou.parsers.anime.sources.Gogo
 import ani.saikou.parsers.anime.sources.Haho
 import ani.saikou.parsers.anime.sources.HentaiFF
@@ -19,23 +20,26 @@ object AnimeSources : WatchSources() {
     override val list: List<Lazier<BaseParser>> = lazyList(
 //        "Dummy" to ::AnimeDummy,
         "Gogo" to ::Gogo,
-        "AniWave" to ::AniWave,
         "AllAnime" to ::AllAnime,
         "AnimeDao" to ::AnimeDao,
         "AnimePahe" to ::AnimePahe,
+        "Animension" to ::Animension,
         "Kaido" to ::Kaido,
+        "AniWave" to ::AniWave,
+//        "Sflix" to ::SFlix,
+
 
     )
 }
 
 object HAnimeSources : WatchSources() {
-    private val aList: List<Lazier<BaseParser>>  = lazyList(
+    private val aList: List<Lazier<BaseParser>> = lazyList(
         "Haho" to ::Haho,
         "HentaiMama" to ::HentaiMama,
         "HentaiStream" to ::HentaiStream,
         "HentaiFF" to ::HentaiFF,
 
-    )
+        )
 
     override val list = listOf(aList, AnimeSources.list).flatten()
 }
