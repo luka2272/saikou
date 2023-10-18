@@ -45,7 +45,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 |             [AniWave](https://aniwave.to)                  | SEMI-WORKING |    NO     |
 |                 [AnimeDao](https://animedao.bz)            |   WORKING    |    SOME   |
 |             [AnimePahe](https://animepahe.ru)              |   WORKING    |    YES    |
-|           [Animension (18+)](animension.to)                |   WORKING    |    YES    |
+|           [Animension](animension.to)                      |   WORKING    |    YES    |
 |               [Haho (18+)](https://haho.moe)               |   WORKING    |    YES    |
 |         [HentaiMama (18+)](https://hentaimama.io)          |   WORKING    |   SOME    |
 |       [HentaiStream (18+)](https://hentaistream.com)       |  NOT-WORKING |    NO     |
