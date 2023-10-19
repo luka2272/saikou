@@ -87,7 +87,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 <p align="center">
  <a href="https://telegram.me/misfits_zone">
-  <img src="https://tg-button.repl.co/misfits_zone/%231d0b40">
+  <img src="https://tg-button.repl.co/misfits_zone">
  </a>
 </p>
 
