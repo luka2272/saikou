@@ -99,11 +99,12 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
  </a>
 </p>
 
+<!--
 ### Official Telegram Group
 
 https://telegram.me/saikou_app
 
-<!-- ### VISIT FOR MORE INFORMATION:-
+ ### VISIT FOR MORE INFORMATION:-
 
 https://saikou.me/ -->
 
