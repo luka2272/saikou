@@ -85,7 +85,11 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 ### Join My Telegram Group (unofficial)
 
-https://telegram.me/misfits_zone
+<p align="center">
+ <a href="https://telegram.me/misfits_zone">
+  <img src="https://saik0u.repl.co/svg/Drop-Some-Thoughts">
+ </a>
+</p>
 
 ### Official Discord Server
 
