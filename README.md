@@ -28,7 +28,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 <img src="https://i.imgur.com/F7QRHKv.jpg" style="width: 17%;margin:16px;border-radius: 15px;" />&nbsp;&nbsp;
 <img src="https://i.imgur.com/FI6o8Km.jpg" style="width: 17%;margin:16px;border-radius: 15px;" />&nbsp;&nbsp;
 <img src="https://i.imgur.com/QteutJa.jpg" style="width: 17%;margin:16px;border-radius: 15px;" />&nbsp;&nbsp;
-<img src="https://i.imgur.com/qTx4xTO.jpg" style="width: 17%;border-radius: 15px;" />
+<img src="https://i.imgur.com/qTx4xTO.jpg" style="width: 17%;margin:16px;border-radius: 15px;" />
 
 ## APP FEATURES
 
