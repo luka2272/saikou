@@ -91,7 +91,7 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 - You can come hang out with our awesome community and request new features and report any bugs or issue at our discord server too.
 
-### Join My Telegram Group (unofficial)
+### Join My Telegram Group
 
 <p align="center">
  <a href="https://telegram.me/misfits_zone">
