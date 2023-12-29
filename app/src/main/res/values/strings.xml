@@ -10,8 +10,8 @@
     <string name="logout">Logout</string>
 
     <string name="discord">https://discord.gg/2T7TunuwFZ</string>
-    <string name="telegram">https://telegram.me/saikou_app</string>
-    <string name="github">https://github.com/saikou-app/saikou</string>
+    <string name="telegram">https://telegram.me/misfitsdev</string>
+    <string name="github">https://github.com/tas33n/saikou</string>
 
     <string name="home">Home</string>
     <string name="anime">Anime</string>
@@ -332,8 +332,8 @@
     <string name="requires_time_stamps_to_be_enabled">Requires Time Stamps to be Enabled</string>
     <string name="total_repeats">TOTAL REPEATS</string>
     <string name="custom_lists">Custom Lists</string>
-    <string name="donate_desc">Want to support Saikou\'s Creator?\nConsider Donating</string>
-    <string name="donate_goal">We reached to $1000+,\n expect Offline Viewing Mode soon!</string>
+    <string name="donate_desc">Want to support Saikou\'s Devloper?\nConsider Donating</string>
+    <string name="donate_goal"></string>
     <string name="filter">Filter</string>
     <string name="year">Year</string>
     <string name="apply">Apply</string>

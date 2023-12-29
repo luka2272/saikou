@@ -74,7 +74,7 @@ class RapidCloud(override val server: VideoServer) : VideoExtractor() {
 
     companion object {
         private suspend fun decryptKey(): Array<Array<Int>> {
-            val keyJSON = JSONArray(client.get("https://raw.githubusercontent.com/enimax-anime/key/e0/key.txt").text);
+            val keyJSON = JSONArray(client.get("https://raw.githubusercontent.com/Claudemirovsky/keys/e6/key").text);
             val key = Array(keyJSON.length()) { i ->
                 val innerArray = keyJSON.getJSONArray(i)
                 Array(innerArray.length()) { j ->
