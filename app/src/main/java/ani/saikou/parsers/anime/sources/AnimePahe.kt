@@ -78,7 +78,7 @@ class AnimePahe : AnimeParser() {
         private val size = (data["size"] as String).toDoubleOrNull()
         private val ref = data["referer"] as String
 
-        private val redirectRegex = Regex("<a href=\"(.+?)\" .+?>Redirect me</a>")
+        private val redirectRegex = Regex("href=\"([^\"]+)\"[^>]*>Continue</a>")
         private val paramRegex = Regex("""\(\"(\w+)\",\d+,\"(\w+)\",(\d+),(\d+),(\d+)\)""")
         private val urlRegex = Regex("action=\"(.+?)\"")
         private val tokenRegex = Regex("value=\"(.+?)\"")

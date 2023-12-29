@@ -281,7 +281,7 @@ OS Version: $CODENAME $RELEASE ($SDK_INT)
             lifecycleScope.launch {
                 it.pop()
             }
-            openLinkInBrowser("https://ko-fi.com/brahmkshatriya")
+            openLinkInBrowser("https://www.buymeacoffee.com/tas33n")
         }
         lifecycleScope.launch {
             binding.settingBuyMeCoffee.pop()

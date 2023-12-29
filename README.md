@@ -6,6 +6,9 @@
    <a href="https://github.com/tas33n/Saikou/releases"><img src="https://img.shields.io/github/downloads/tas33n/Saikou/total?color=%233DDC84&logo=android&logoColor=%23fff&style=for-the-badge"></a>
 </p>
 
+### Unable to actively maintain Saikou due to real-life commitments. Please switch to Dontatsu, an improved version with new features and extensions: [Dontatsu](https://github.com/rebelonion/Dantotsu/) . Thank you for your understanding and support.
+>
+
 Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [Anilist](https://anilist.co/) only client, which also lets you stream/download Anime & Manga.
 <br><br>
 <i>Saikou (最高; Sai-kō) literally means the best in Japanese. Well, we would like to say this is the best open source app for anime and manga on Android, but hey, try it out yourself & judge!
@@ -46,19 +49,19 @@ Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [A
 
 * **Available Anime sources:-**
 
-|                      SITE                      |    STATUS    | DOWNLOADS |
-| :--------------------------------------------: | :----------: | :-------: |
-|       [AllAnime](https://allanime.site)        |   WORKING    |   SOME    |
-|          [Gogo](https://gogoanime.cm)          |   WORKING    |   SOME    |
-|           [Kaido](https://kaido.to)            |   WORKING    |    NO     |
-|         [AniWave](https://aniwave.to)          | SEMI-WORKING |    NO     |
-|        [AnimeDao](https://animedao.bz)         |   WORKING    |   SOME    |
-|       [AnimePahe](https://animepahe.ru)        |   WORKING    |    YES    |
-|          [Animension](animension.to)           |   WORKING    |    YES    |
-|         [Haho (18+)](https://haho.moe)         |   WORKING    |    YES    |
-|   [HentaiMama (18+)](https://hentaimama.io)    |   WORKING    |   SOME    |
-| [HentaiStream (18+)](https://hentaistream.com) | NOT-WORKING  |    NO     |
-|     [HentaiFF (18+)](https://hentaiff.com)     | NOT-WORKING  |    NO     |
+|                      SITE                      |     STATUS      | DOWNLOADS |
+| :--------------------------------------------: |:---------------:| :-------: |
+|       [AllAnime](https://allanime.site)        |     WORKING     |   SOME    |
+|          [Gogo](https://gogoanime.cm)          |     WORKING     |   SOME    |
+|        [AnimeDao](https://animedao.bz)         |     WORKING     |   SOME    |
+|           [Kaido](https://kaido.to)            |   NOT-WORKING   |    NO     |
+|         [AniWave](https://aniwave.to)          |   NOT-WORKING   |    NO     |
+|       [AnimePahe](https://animepahe.ru)        |   NOT-WORKING   |    YES    |
+|          [Animension](animension.to)           |   NOT-WORKING   |    YES    |
+|         [Haho (18+)](https://haho.moe)         |     WORKING     |    YES    |
+|   [HentaiMama (18+)](https://hentaimama.io)    |     WORKING     |   SOME    |
+| [HentaiStream (18+)](https://hentaistream.com) |   NOT-WORKING   |    NO     |
+|     [HentaiFF (18+)](https://hentaiff.com)     |   NOT-WORKING   |    NO     |
 
 - **Available Manga sources:-**
 

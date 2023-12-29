@@ -60,10 +60,10 @@ class Kaido : AnimeParser() {
     override suspend fun getVideoExtractor(server: VideoServer): VideoExtractor? {
         val domain = Uri.parse(server.embed.url).host ?: return null
         val extractor: VideoExtractor? = when {
+            "rapid-cloud" in domain    -> RapidCloud(server)
             "megacloud" in domain    -> RapidCloud(server)
-            "rapid" in domain    -> RapidCloud(server)
-            "sb" in domain       -> StreamSB(server)
-            "streamta" in domain -> StreamTape(server)
+            "watchsb" in domain       -> StreamSB(server)
+            "streamtape" in domain -> StreamTape(server)
             else                 -> null
         }
         return extractor

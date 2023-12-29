@@ -1197,7 +1197,7 @@
                     android:id="@+id/settingBuyMeCoffee"
                     android:layout_width="128dp"
                     android:layout_height="48dp"
-                    app:srcCompat="@drawable/kofi_s_tag_dark"
+                    app:srcCompat="@drawable/buymecofee"
                     tools:ignore="ContentDescription" />
 
                 <View

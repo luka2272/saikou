@@ -16,7 +16,7 @@ import ani.saikou.parsers.anime.extractors.GogoCDN
 class Gogo : AnimeParser() {
     override val name = "Gogo"
     override val saveName = "gogo_anime"
-    override val hostUrl = "https://gogoanimehd.io"
+    override val hostUrl = "https://anitaku.to"
     override val malSyncBackupName = "Gogoanime"
     override val isDubAvailableSeparately = true
 
@@ -67,7 +67,7 @@ class Gogo : AnimeParser() {
         println("vdo extrcat :$server")
         println("vdo extrcat domain:$domain")
         val extractor: VideoExtractor? = when {
-            "goone" in domain -> GogoCDN(server)
+            "embtaku" in domain -> GogoCDN(server)
             "goload" in domain -> GogoCDN(server)
             "dood" in domain -> DoodStream(server)
             "alions" in domain -> ALions(server)
