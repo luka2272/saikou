@@ -7,6 +7,8 @@
 </p>
 
 ### Unable to actively maintain Saikou due to real-life commitments. Please switch to Dontatsu, an improved version with new features and extensions: [Dontatsu](https://github.com/rebelonion/Dantotsu/) . Thank you for your understanding and support.
+>
+
 Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [Anilist](https://anilist.co/) only client, which also lets you stream/download Anime & Manga.
 <br><br>
 <i>Saikou (最高; Sai-kō) literally means the best in Japanese. Well, we would like to say this is the best open source app for anime and manga on Android, but hey, try it out yourself & judge!
