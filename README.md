@@ -6,7 +6,7 @@
    <a href="https://github.com/tas33n/Saikou/releases"><img src="https://img.shields.io/github/downloads/tas33n/Saikou/total?color=%233DDC84&logo=android&logoColor=%23fff&style=for-the-badge"></a>
 </p>
 
-### Unable to actively maintain Saikou due to real-life commitments. Please switch to Dontatsu, an improved version with new features and extensions: [Dontatsu](https://github.com/rebelonion/Dantotsu/) . Thank you for your understanding and support.
+### Unable to actively maintain Saikou due to real-life commitments. Please switch to Dantotsu, an improved version with new features and extensions support: [Dantotsu](https://github.com/rebelonion/Dantotsu/) . Thank you for your understanding and support.
 >
 
 Saikou is crafted based on simplistic yet state-of-the-art elegance. It is an [Anilist](https://anilist.co/) only client, which also lets you stream/download Anime & Manga.
