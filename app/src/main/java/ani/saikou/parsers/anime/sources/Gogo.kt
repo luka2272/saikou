@@ -16,7 +16,7 @@ import ani.saikou.parsers.anime.extractors.GogoCDN
 class Gogo : AnimeParser() {
     override val name = "Gogo"
     override val saveName = "gogo_anime"
-    override val hostUrl = "https://anitaku.to"
+    override val hostUrl = "https://anitaku.pe"
     override val malSyncBackupName = "Gogoanime"
     override val isDubAvailableSeparately = true
 
@@ -31,7 +31,7 @@ class Gogo : AnimeParser() {
         val animeId = pageBody.select("input#movie_id").attr("value").toString()
 
         val epList =
-            client.get("https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=$lastEpisode&id=$animeId").document.select(
+            client.get("https://ajax.gogocdn.net/ajax/load-list-episode?ep_start=0&ep_end=$lastEpisode&id=$animeId").document.select(
                 "ul > li > a"
             ).reversed()
         epList.forEach {
